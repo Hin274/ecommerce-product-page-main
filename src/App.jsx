@@ -1,9 +1,13 @@
+import Header from "./components/Header"
+
 function App() {
 
 
   return (
     <>
-      Collections
+
+    <Header/>
+      {/* Collections
       Men
       Women
       About
@@ -21,7 +25,7 @@ function App() {
       $250.00
 
       0
-      Add to cart
+      Add to cart */}
 
       <div className="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>.
