@@ -40,7 +40,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   position: fixed;
   height: 100%;
   bottom: 0;
-  left:0;
+  left: 0;
 }
 
 /* General sidebar styles */
@@ -70,9 +70,66 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
   bottom: 0;
-  
 }
 
+/* styles for carousel */
+
+.carousel-images {
+  position: relative;
+  /* border-radius: 10px; */
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+.carousel-images > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.slide_direction {
+  display: flex;
+  justify-content: space-between;
+}
+.left,
+.right {
+  background-color: hsl(223, 64%, 98%);
+  padding: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 20px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+/* .carousel-indicator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.dot {
+  background-color: #333;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+.active {
+  background-color: #fa2020;
+} */
+
+/* styles for attribution */
 .attribution {
   font-size: 11px;
   text-align: center;

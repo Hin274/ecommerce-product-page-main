@@ -1,4 +1,5 @@
 import Header from "./components/Header"
+import ProductPage from "./components/ProductPage";
 
 function App() {
 
@@ -7,6 +8,10 @@ function App() {
     <>
 
     <Header/>
+    <main>
+    <ProductPage/>
+    </main>
+    
       {/* Collections
       Men
       Women
