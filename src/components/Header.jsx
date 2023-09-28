@@ -10,7 +10,7 @@ const Header = () => {
                 </span>
                 <span className='flex basis-1/5 justify-between'>
                     <button aria-label='shopping cart'><img className='w-5' src='./images/icon-cart.svg' alt='shopping cart' /></button>
-                    <img className='w-6' src='./images/image-avatar.png' />
+                    <img className='w-6' src='./images/image-avatar.png' alt='profile picture'/>
                 </span>
             </header>
         </>
