@@ -1,5 +1,6 @@
 import Carousel from "./Carousel";
 import { useState } from "react";
+import Cart from "./Cart";
 
 const ProductPage = () => {
 
@@ -28,7 +29,10 @@ let discount = 0.5
 
     return (
         <>
+        <div className="relative">
+            <Cart/>
             <Carousel images={images} />
+            </div>
             <div className="flex flex-col m-5 gap-2">
                 <h1 className="text-main-orange uppercase font-bold text-sm tracking-widest">Sneaker Company</h1>
                 <h2 className="font-bold text-3xl">Fall Limited Edition Sneakers</h2>
