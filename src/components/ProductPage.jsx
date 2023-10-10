@@ -16,6 +16,9 @@ const ProductPage = () => {
     const newPrice = originalPrice * discount
 
     const [quantity, setQuantity] = useState(0)
+    const [isCartOpen,setIsCartOpen]=useState(false)
+
+
     const decreaseQuantity = () => {
         if (quantity >= 1) {
             setQuantity(quantity - 1)
@@ -31,7 +34,10 @@ const ProductPage = () => {
     return (
         <>
             <div className="relative">
-                <Cart productName={productName} newPrice={newPrice} quantity={quantity}/>
+            {
+
+                isCartOpen && <Cart productName={productName} newPrice={newPrice} quantity={quantity}/>
+            }
                 <Carousel images={images} />
             </div>
             <div className="flex flex-col m-5 gap-2">
