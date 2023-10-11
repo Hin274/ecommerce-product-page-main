@@ -7,7 +7,6 @@ function App() {
   const [isCartOpen,setIsCartOpen]=useState(false)
   const openCart = ()=>{
     setIsCartOpen(prevCartState =>!prevCartState)
-    console.log("cart state" + isCartOpen)
   }
 
   return (

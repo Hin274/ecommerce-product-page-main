@@ -17,17 +17,20 @@ const ProductPage = ({isCartOpen}) => {
     let discount = 0.5
     const newPrice = originalPrice * discount
 
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
 
 
     const decreaseQuantity = () => {
-        if (quantity >= 1) {
+        if (quantity > 1  && isCartOpen === false ) {
             setQuantity(quantity - 1)
         }
     }
 
     const increaseQuantity = () => {
-        setQuantity(quantity + 1)
+        if(isCartOpen === false){
+
+            setQuantity(quantity + 1)
+        }
     }
 
 

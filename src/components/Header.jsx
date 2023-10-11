@@ -1,4 +1,4 @@
-import { useState } from 'react';
+/* eslint-disable react/prop-types */
 import NavBar from './NavBar';
 
 const Header = ({openCart}) => {
