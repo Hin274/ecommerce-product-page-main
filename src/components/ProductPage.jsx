@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import Carousel from "./Carousel";
 import { useState } from "react";
 import Cart from "./Cart";
 
-const ProductPage = () => {
+const ProductPage = ({isCartOpen}) => {
 
     const images = [
         "../images/image-product-1.jpg",
@@ -11,12 +12,12 @@ const ProductPage = () => {
         "../images/image-product-4.jpg"
     ]
 
+    const productName = "Fall Limited Edition Sneakers"
     const originalPrice = 250
     let discount = 0.5
     const newPrice = originalPrice * discount
 
     const [quantity, setQuantity] = useState(0)
-    const [isCartOpen,setIsCartOpen]=useState(true)
 
 
     const decreaseQuantity = () => {
@@ -29,7 +30,6 @@ const ProductPage = () => {
         setQuantity(quantity + 1)
     }
 
-    const productName = "Fall Limited Edition Sneakers"
 
     return (
         <>

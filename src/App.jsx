@@ -1,15 +1,21 @@
+import { useState } from "react";
 import Header from "./components/Header"
 import ProductPage from "./components/ProductPage";
 
 function App() {
 
+  const [isCartOpen,setIsCartOpen]=useState(false)
+  const openCart = ()=>{
+    setIsCartOpen(prevCartState =>!prevCartState)
+    console.log("cart state" + isCartOpen)
+  }
 
   return (
     <>
 
-    <Header/>
+    <Header openCart={openCart}/>
     <main>
-    <ProductPage/>
+    <ProductPage isCartOpen={isCartOpen}/>
     </main>
     
       {/* Collections
