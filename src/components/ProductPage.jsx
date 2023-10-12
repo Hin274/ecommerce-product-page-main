@@ -31,15 +31,13 @@ const ProductPage = ({ isCartOpen }) => {
 
 
     const decreaseQuantity = () => {
-        if (quantity > 1 && isCartOpen === false) {
+        if (quantity > 1) {
             setQuantity(quantity - 1)
         }
     }
 
     const increaseQuantity = () => {
-        if (isCartOpen === false) {
             setQuantity(quantity + 1)
-        }
     }
 
 
@@ -48,15 +46,17 @@ const ProductPage = ({ isCartOpen }) => {
         setHasCartItems(true)
     }
 
-
-    console.log(hasCartItems)
+    const removeFromCart = () =>{
+        setCart([])
+        setHasCartItems(false)
+    }
 
     return (
         <>
             <div className="relative">
                 {
 
-                    isCartOpen && <Cart cart={cart} hasCartItems={hasCartItems} />
+                    isCartOpen && <Cart cart={cart} hasCartItems={hasCartItems} removeFromCart={removeFromCart} />
                 }
                 <Carousel images={images} />
             </div>

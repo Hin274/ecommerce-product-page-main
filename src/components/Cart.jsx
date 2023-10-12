@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-const Cart = ({ cart, hasCartItems }) => {
+const Cart = ({ cart, hasCartItems,removeFromCart }) => {
 
     const total = cart.finalPrice * cart.quantity
 
@@ -17,7 +17,7 @@ const Cart = ({ cart, hasCartItems }) => {
                                 <p className="text-dark-grayish-blue">{cart.productName}</p>
                                 <p className="text-dark-grayish-blue">${cart.finalPrice.toFixed(2)} x {cart.quantity} <span className="font-bold text-main-black">${total.toFixed(2)}</span></p>
                             </div>
-                            <button aria-label="Remove item"><img className="w-4" src="./images/icon-delete.svg" /></button>
+                            <button onClick={removeFromCart} aria-label="Remove item"><img className="w-4" src="./images/icon-delete.svg" /></button>
                         </div>
                         <button className="rounded-lg bg-main-orange text-main-white p-4 font-bold">Checkout</button>
                     </div> :
