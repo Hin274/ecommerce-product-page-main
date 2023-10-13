@@ -1,18 +1,8 @@
 /* eslint-disable react/prop-types */
 import Carousel from "./Carousel";
-import { useEffect, useState } from "react";
 import Cart from "./Cart";
 
-const ProductPage = ({ isCartOpen }) => {
-
-    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
-    const [hasCartItems, setHasCartItems] = useState(JSON.parse(localStorage.getItem('cartState')) || false)
-    
-
-    useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart));
-        localStorage.setItem('cartState', JSON.stringify(hasCartItems));
-    }, [cart, hasCartItems]);
+const ProductPage = ({ isCartOpen, cart,hasCartItems, quantity,increaseQuantity,decreaseQuantity,addToCart,removeFromCart, productName,originalPrice,discount,finalPrice }) => {
 
 
     const images = [
@@ -21,35 +11,6 @@ const ProductPage = ({ isCartOpen }) => {
         "../images/image-product-3.jpg",
         "../images/image-product-4.jpg"
     ]
-
-    const productName = "Fall Limited Edition Sneakers"
-    const originalPrice = 250
-    let discount = 0.5
-    const finalPrice = originalPrice * discount
-
-    const [quantity, setQuantity] = useState(1)
-
-
-    const decreaseQuantity = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1)
-        }
-    }
-
-    const increaseQuantity = () => {
-            setQuantity(quantity + 1)
-    }
-
-
-    const addToCart = () => {
-        setCart({ productName, quantity, finalPrice: finalPrice })
-        setHasCartItems(true)
-    }
-
-    const removeFromCart = () =>{
-        setCart([])
-        setHasCartItems(false)
-    }
 
     return (
         <>
