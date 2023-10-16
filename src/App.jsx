@@ -47,7 +47,7 @@ function App() {
   return (
     <>
 
-      <Header openCart={openCart} hasCartItems={hasCartItems} cart={cart} />
+      <Header openCart={openCart} hasCartItems={hasCartItems} cart={cart} isCartOpen={isCartOpen} removeFromCart={removeFromCart} />
       <main>
         <ProductPage isCartOpen={isCartOpen} cart={cart} hasCartItems={hasCartItems} quantity={quantity} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} addToCart={addToCart} removeFromCart={removeFromCart} productName={productName} originalPrice={originalPrice} discount={discount} finalPrice={finalPrice} />
       </main>
