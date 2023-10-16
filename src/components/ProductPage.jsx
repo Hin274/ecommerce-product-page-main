@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import Carousel from "./Carousel";
 import Cart from "./Cart";
+import useViewport from '../../hooks/useViewport';
 
 const ProductPage = ({ isCartOpen, cart,hasCartItems, quantity,increaseQuantity,decreaseQuantity,addToCart,removeFromCart, productName,originalPrice,discount,finalPrice }) => {
 
+    const screenWidth = useViewport()
+    const breakpoint = 1024
 
     const images = [
         "../images/image-product-1.jpg",
@@ -17,7 +20,7 @@ const ProductPage = ({ isCartOpen, cart,hasCartItems, quantity,increaseQuantity,
             <div className="relative">
                 {
 
-                    isCartOpen && <Cart cart={cart} hasCartItems={hasCartItems} removeFromCart={removeFromCart} />
+                    (isCartOpen && screenWidth < breakpoint) && <Cart cart={cart} hasCartItems={hasCartItems} removeFromCart={removeFromCart} />
                 }
                 <Carousel images={images} />
             </div>
