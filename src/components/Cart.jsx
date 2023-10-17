@@ -6,7 +6,7 @@ const Cart = ({ cart, hasCartItems,removeFromCart }) => {
 
     return (
         <>
-            <div className="bg-main-white rounded-lg absolute z-50 left-2 top-2 right-2 bottom-7 shadow-2xl">
+            <div className="bg-main-white rounded-lg absolute z-50 left-2 top-2 right-2 bottom-7 shadow-2xl lg:top-20 lg:w-[28%] lg:left-[70%] lg:h-[16rem]">
                 <h1 className="font-bold p-5">Cart</h1>
                 <hr></hr>
                 {hasCartItems ?
