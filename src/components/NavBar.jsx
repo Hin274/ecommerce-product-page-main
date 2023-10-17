@@ -10,7 +10,7 @@ const NavBar = () => {
 
     return (
         <>
-            { screenWidth > breakpoint ? <NavLinks /> :
+            { screenWidth >= breakpoint ? <NavLinks /> :
                 <Menu
                     customBurgerIcon={<img src='./images/icon-menu.svg' />}
                     customCrossIcon={<img src='./images/icon-close.svg' />}
