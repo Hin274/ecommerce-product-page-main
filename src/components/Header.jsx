@@ -11,14 +11,14 @@ const Header = ({ openCart, hasCartItems, cart, isCartOpen, removeFromCart }) =>
 
     return (
         <>
-            <header className='flex relative items-center p-5 justify-between lg:p-0 lg:mx-10 lg:py-8 lg:border-b-2'>
+            <header className='flex relative items-center p-5 justify-between lg:p-0 lg:mx-24 lg:py-8 lg:border-b-2'>
                 <span className='flex ml-10 lg:ml-0 lg:gap-16'>
                     <img className='w-36' src='./images/logo.svg' />
                     <NavBar />
                 </span>
                 {
 
-                    (isCartOpen && screenWidth > breakpoint) && <Cart cart={cart} hasCartItems={hasCartItems} removeFromCart={removeFromCart} />
+                    (isCartOpen && screenWidth >= breakpoint) && <Cart cart={cart} hasCartItems={hasCartItems} removeFromCart={removeFromCart} />
                 }
                 <span className='flex items-center lg:justify-end lg:gap-8'>
                     <div className='flex relative mr-6'>
