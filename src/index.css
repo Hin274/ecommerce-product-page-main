@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+@import 'react-image-gallery/styles/css/image-gallery.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: absolute;
   width: 15px;
   height: 15px;
   left: 20px;
@@ -72,61 +77,69 @@ Note: Beware of modifying this element as it can break the animations - you shou
   bottom: 0;
 }
 
-/* styles for carousel */
-
-.carousel-images {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-}
-.carousel-images > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 42%;
-}
-
-.slide_direction {
-  display: flex;
-  justify-content: space-between;
-}
-.left,
-.right {
+.image-gallery-right-nav,
+.image-gallery-left-nav {
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: center;
+  padding: 15px;
   background-color: hsl(223, 64%, 98%);
-  padding: 12px;
   border-radius: 50%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 20px;
   height: 40px;
   width: 40px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
+  filter: none;
+  margin: 0px 15px;
 }
-.left {
-  left: 0;
+
+.image-gallery-right-nav {
+  background-image: url('../images/icon-next.svg');
 }
-.right {
-  right: 0;
+
+.image-gallery-left-nav {
+  background-image: url('../images/icon-previous.svg');
 }
-/* .carousel-indicator {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+
+.image-gallery-svg {
+  display: none;
 }
-.dot {
-  background-color: #333;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
+
+.image-gallery-slides{
+  height: 300px;
 }
-.active {
-  background-color: #fa2020;
-} */
+
+.image-gallery-thumbnail-image
+{
+  border-radius: 5px;
+}
+.image-gallery-thumbnail{
+  border-radius: 10px;
+}
+.image-gallery-thumbnail.active {
+  border: 4px solid hsl(26, 100%, 55%); 
+  opacity: 30%;
+  border-radius: 10px;
+}
+
+
+.image-gallery-thumbnail-image:focus,
+.image-gallery-thumbnail:hover{
+  border-radius: 10px;
+  border: 4px solid hsl(26, 100%, 55%); 
+  opacity: 75%;
+}
+
+@media screen and (min-width:1024px){
+  .image-gallery-image,
+  .image-gallery-slides {
+    border-radius: 10px;
+  }
+
+  .image-gallery-slides{
+    height: auto;
+  }
+  
+}
+
 
 /* styles for attribution */
 .attribution {
