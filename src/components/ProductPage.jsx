@@ -2,6 +2,7 @@
 import ImageGallery from "react-image-gallery";
 import Cart from "./Cart";
 import useViewport from '../../hooks/useViewport';
+import { useState } from "react";
 
 const ProductPage = ({ isCartOpen, cart, hasCartItems, quantity, increaseQuantity, decreaseQuantity, addToCart, removeFromCart, productName, originalPrice, discount, finalPrice }) => {
 
@@ -11,30 +12,41 @@ const ProductPage = ({ isCartOpen, cart, hasCartItems, quantity, increaseQuantit
     const images = [
         {
             original: "../images/image-product-1.jpg",
-            originalAlt:"A sneaker upright and a sneaker flat down",
+            originalAlt: "A sneaker upright and a sneaker flat down",
             thumbnail: "../images/image-product-1-thumbnail.jpg",
-            thumbnailAlt:"A sneaker upright and a sneaker flat down",
+            thumbnailAlt: "A sneaker upright and a sneaker flat down",
         },
         {
-            original:"../images/image-product-2.jpg",
-            originalAlt:"A sneaker upright and a sneaker on pile of round stones with branch in front",
-            thumbnail:"../images/image-product-2-thumbnail.jpg",
-            thumbnailAlt:"A sneaker upright and a sneaker on pile of round stones with branch in front",
+            original: "../images/image-product-2.jpg",
+            originalAlt: "A sneaker upright and a sneaker on pile of round stones with branch in front",
+            thumbnail: "../images/image-product-2-thumbnail.jpg",
+            thumbnailAlt: "A sneaker upright and a sneaker on pile of round stones with branch in front",
         },
         {
-            original:"../images/image-product-3.jpg",
-            originalAlt:"A sneaker on pile of round stones with paper folded between stones",
-            thumbnail:"../images/image-product-3-thumbnail.jpg",
-            thumbnailAlt:"A sneaker on pile of round stones with paper folded between stones",
+            original: "../images/image-product-3.jpg",
+            originalAlt: "A sneaker on pile of round stones with paper folded between stones",
+            thumbnail: "../images/image-product-3-thumbnail.jpg",
+            thumbnailAlt: "A sneaker on pile of round stones with paper folded between stones",
         },
         {
-            original:"../images/image-product-4.jpg",
-            originalAlt:"A sneaker on pile of round stones",
-            thumbnail:"../images/image-product-4-thumbnail.jpg",
-            thumbnailAlt:"A sneaker on pile of round stones",
+            original: "../images/image-product-4.jpg",
+            originalAlt: "A sneaker on pile of round stones",
+            thumbnail: "../images/image-product-4-thumbnail.jpg",
+            thumbnailAlt: "A sneaker on pile of round stones",
         },
     ]
 
+
+    const [lightBoxDisplay, setLightBoxDisplay] = useState(false)
+
+
+    const openLightBox = () => {
+        if (screenWidth > breakpoint) {
+            setLightBoxDisplay(true);
+        }
+    }
+
+   const active = document.getElementsByClassName("image-gallery-thumbnail.active")
 
     return (
         <div className="lg:flex lg:m-20 lg:mx-32 lg:gap-10">
@@ -43,7 +55,20 @@ const ProductPage = ({ isCartOpen, cart, hasCartItems, quantity, increaseQuantit
 
                     (isCartOpen && screenWidth < breakpoint) && <Cart cart={cart} hasCartItems={hasCartItems} removeFromCart={removeFromCart} />
                 }
-                <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} showThumbnails={screenWidth> breakpoint ? true : false} showNav={screenWidth < breakpoint ? true : false}/>
+                {lightBoxDisplay &&
+                    
+                        <div className="bg-main-black/75 w-screen h-screen fixed top-0 left-0 z-10">
+                            <div className="flex flex-col justify-center items-center h-full">
+                                <div className="w-1/3 relative z-20">
+                                <button onClick={() => setLightBoxDisplay(false)} className="cursor-pointer absolute right-0 -top-8"><svg width="14" height="15" xmlns="http://www.w3.org/2000/svg" className="fill-main-white hover:fill-main-orange"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fillRule="evenodd" /></svg></button>
+                                <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} showThumbnails={true} showNav={true} onClick={openLightBox} />
+                                </div>
+                                </div>
+                        </div>
+                    
+                }
+                    
+                    <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} showThumbnails={screenWidth > breakpoint ? true : false} showNav={screenWidth < breakpoint ? true : false} onClick={openLightBox} />
             </div>
             <div className="flex flex-col m-5 gap-2 lg:basis-1/2 lg:m-8 lg:px-8">
                 <h1 className="text-main-orange uppercase font-bold text-sm tracking-widest">Sneaker Company</h1>

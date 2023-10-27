@@ -111,22 +111,41 @@ Note: Beware of modifying this element as it can break the animations - you shou
 {
   border-radius: 5px;
 }
+
+.image-gallery-thumbnail-inner{
+  background-color: white;
+  border-radius: 5px;
+  opacity: 100%;
+}
 .image-gallery-thumbnail{
   border-radius: 10px;
 }
-.image-gallery-thumbnail.active {
-  border: 4px solid hsl(26, 100%, 55%); 
-  opacity: 30%;
-  border-radius: 10px;
+
+.image-gallery-thumbnails-container{
+  margin-top: 15px;
 }
 
-
-.image-gallery-thumbnail-image:focus,
+.image-gallery-thumbnail:focus,
 .image-gallery-thumbnail:hover{
   border-radius: 10px;
-  border: 4px solid hsl(26, 100%, 55%); 
-  opacity: 75%;
+  border: 4px solid transparent; 
 }
+
+.image-gallery-thumbnail-image:hover{
+  opacity: 60%;
+}
+
+.image-gallery-thumbnail-image:active{
+  opacity: 35%;
+}
+
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:active {
+  border: 4px solid hsl(26, 100%, 55%); 
+  opacity: 35%;
+  border-radius: 10px;
+}
+
 
 @media screen and (min-width:1024px){
   .image-gallery-image,
@@ -134,11 +153,25 @@ Note: Beware of modifying this element as it can break the animations - you shou
     border-radius: 10px;
   }
 
+  .image-gallery-left-nav,
+  .image-gallery-right-nav{
+    margin: 0 -1.25rem;
+  }
+
+  .image-gallery-left-nav:hover{
+    background-image: url('../images/icon-previous-hover.svg');
+  }
+  .image-gallery-right-nav:hover{
+    background-image: url('../images/icon-next-hover.svg');
+  }
+
+
   .image-gallery-slides{
     height: auto;
   }
   
 }
+
 
 
 /* styles for attribution */
