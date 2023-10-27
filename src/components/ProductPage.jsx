@@ -46,10 +46,8 @@ const ProductPage = ({ isCartOpen, cart, hasCartItems, quantity, increaseQuantit
         }
     }
 
-   const active = document.getElementsByClassName("image-gallery-thumbnail.active")
-
     return (
-        <div className="lg:flex lg:m-20 lg:mx-32 lg:gap-10">
+        <div className="lg:flex lg:m-20 lg:w-[80%] lg:gap-10">
             <div className="relative lg:basis-1/2">
                 {
 
